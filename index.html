@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>A Little Question for Anamika 💗</title>
+<style>
+:root{
+  --pink:#e83b79; --pink2:#ff6f9f; --soft:#fff5f8; --ink:#442435;
+  --card:#fffdfd; --shadow:0 18px 45px rgba(116,31,69,.18);
+}
+*{box-sizing:border-box} body{margin:0;font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif;color:var(--ink);
+background:radial-gradient(circle at 20% 10%,#ffd5e3 0 12%,transparent 35%),linear-gradient(145deg,#c94f78,#f19ab5 48%,#ffe3ec);
+min-height:100vh;overflow-x:hidden}
+button,input{font:inherit}.app{min-height:100vh;display:grid;place-items:center;padding:24px 16px;position:relative}
+.sparkles{position:fixed;inset:0;pointer-events:none;opacity:.75;background-image:
+ radial-gradient(circle,#fff 0 1px,transparent 2px),radial-gradient(circle,#fff 0 1px,transparent 2px);
+background-size:80px 95px,130px 120px;background-position:10px 20px,50px 70px}
+.phone{width:min(430px,100%);min-height:760px;max-height:900px;border-radius:38px;padding:16px;position:relative;
+background:linear-gradient(#d94f80,#f6a1ba);box-shadow:0 30px 80px rgba(70,10,35,.35);overflow:hidden}
+.status{height:25px;display:flex;justify-content:space-between;align-items:center;padding:0 8px;font-size:12px;color:#fff;font-weight:700}
+.top{display:flex;justify-content:space-between;align-items:center;color:white;margin:4px 4px 14px}
+.logo{font-weight:900;letter-spacing:.5px}.dots{font-size:20px}
+.screen{height:calc(100% - 55px);display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;animation:pageIn .65s cubic-bezier(.16,1,.3,1)}
+@keyframes pageIn{from{opacity:0;transform:translateY(22px) scale(.97)}to{opacity:1;transform:none}}
+.sparkle-pop{position:absolute;pointer-events:none;font-size:18px;animation:sparklePop .8s ease-out forwards}
+@keyframes sparklePop{0%{transform:scale(.2);opacity:0}35%{opacity:1}100%{transform:translate(var(--x),var(--y)) scale(1.2);opacity:0}}
+.heart-float{position:fixed;bottom:-30px;font-size:18px;pointer-events:none;z-index:20;animation:heartRise var(--dur) linear forwards}
+@keyframes heartRise{0%{transform:translate3d(0,0,0) scale(.7);opacity:0}12%{opacity:.9}100%{transform:translate3d(var(--drift),-110vh,0) rotate(25deg) scale(1.2);opacity:0}}
+
+.cat{font-size:112px;line-height:1;margin:18px 0 14px;filter:drop-shadow(0 12px 9px rgba(89,25,49,.2));animation:bob 2.6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-7px)}} 
+.envelope{width:245px;height:165px;margin-top:85px;background:#fffdf4;border-radius:10px;position:relative;box-shadow:var(--shadow);transform:rotate(-1deg)}
+.envelope:before{content:"";position:absolute;inset:0;background:linear-gradient(35deg,transparent 49%,#eadfd6 50% 51%,transparent 52%),linear-gradient(-35deg,transparent 49%,#eadfd6 50% 51%,transparent 52%);clip-path:polygon(0 0,100% 0,50% 57%)}
+.envelope .seal{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);width:45px;height:45px;border-radius:50%;background:var(--pink);color:white;display:grid;place-items:center;font-size:20px}
+.to{position:absolute;left:18px;bottom:18px;text-align:left;font-size:11px}.to b{font-size:20px;font-style:italic}
+.hint{margin-top:auto;color:#ffeaf1;font-size:13px}
+.card{width:100%;background:rgba(255,253,253,.96);border-radius:24px;padding:24px 20px;box-shadow:var(--shadow)}
+.card h1{margin:0 0 8px;font-size:28px;line-height:1.15}.card p{margin:7px 0;color:#7a5264}
+.kicker{font-family:cursive;color:var(--pink);font-size:17px}
+.primary{border:0;border-radius:18px;background:linear-gradient(135deg,var(--pink),#c91f61);color:#fff;padding:15px 24px;font-weight:900;
+box-shadow:0 8px 20px rgba(232,59,121,.3);cursor:pointer;transition:.25s;position:relative;overflow:hidden}
+.primary:before{content:"";position:absolute;top:0;left:-80%;width:45%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);animation:shine 3s ease-in-out infinite}
+.primary:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(232,59,121,.36)}
+.primary:active{transform:scale(.97)}
+@keyframes shine{0%,55%{left:-80%}75%,100%{left:130%}}
+.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+.choice{border:2px solid #f2d7e1;background:#fff;border-radius:17px;padding:10px;cursor:pointer;transition:.25s cubic-bezier(.2,.8,.2,1);position:relative;overflow:hidden}
+.choice:hover{transform:translateY(-4px);box-shadow:0 10px 22px rgba(210,57,112,.13)}
+.choice.selected{border-color:var(--pink);background:linear-gradient(145deg,#fff,#fff0f5);box-shadow:0 0 0 3px #ffd5e3,0 10px 24px rgba(232,59,121,.16);transform:translateY(-2px)}
+.choice.selected:after{content:"✓";position:absolute;right:9px;top:8px;width:25px;height:25px;border-radius:50%;background:var(--pink);color:#fff;font-weight:900;display:grid;place-items:center;animation:pop .28s ease-out}
+.choice .emoji{font-size:46px;display:block;transition:.25s}.choice.selected .emoji{animation:wiggle .55s ease-in-out}
+.choice small{font-weight:800}
+@keyframes pop{0%{transform:scale(0)}70%{transform:scale(1.18)}100%{transform:scale(1)}}
+@keyframes wiggle{0%,100%{transform:rotate(0) scale(1)}35%{transform:rotate(-8deg) scale(1.1)}70%{transform:rotate(8deg) scale(1.08)}}
+.field{margin:13px 0;text-align:left}.field label{display:block;font-size:12px;font-weight:900;margin-bottom:6px;color:#8a6173}
+input{width:100%;border:2px solid #f0d8e1;border-radius:14px;padding:13px;background:#fff;color:var(--ink);outline:none}
+input:focus{border-color:var(--pink)} .ticket{background:#fff;border-radius:20px;padding:20px;box-shadow:var(--shadow);text-align:left;position:relative}
+.ticket:after{content:"♥";position:absolute;right:18px;top:14px;color:#ef4b83;font-size:25px}
+.ticket h2{margin:4px 0 14px;font-family:Georgia,serif}.ticket .big{font-size:30px;font-weight:900}.ticket hr{border:0;border-top:1px dashed #e5bdcd;margin:17px 0}
+.meta{display:grid;grid-template-columns:1fr 1fr;gap:12px}.meta span{display:block;font-size:10px;color:#9a7484;font-weight:800}.meta b{font-size:14px}
+.progress{display:flex;gap:6px;margin:8px 0 16px}.progress i{height:5px;flex:1;border-radius:99px;background:#efc5d4}.progress i.on{background:var(--pink)}
+.hidden{display:none!important}.back{background:none;border:0;color:white;font-weight:800;cursor:pointer;align-self:flex-start;margin-bottom:4px}
+.final-cat{font-size:82px;margin:8px 0}.tiny{font-size:11px;color:#9b6e80}
+</style>
+</head>
+<body>
+<div class="sparkles"></div>
+<main class="app">
+  <section class="phone">
+    <div class="status"><span>9:41</span><span>● ● ᴡɪꜰɪ 🔋</span></div>
+    <div class="top"><span class="logo">♡ for Anamika</span><span class="dots">⋯</span></div>
+
+    <div id="s0" class="screen">
+      <div class="envelope">
+        <div class="seal">♥</div>
+        <div class="to">TO<br><b>Anamika</b></div>
+      </div>
+      <p class="hint">tap the heart to open 💌</p>
+      <button class="primary" style="margin-top:12px" onclick="go(1)">Open my little letter</button>
+    </div>
+
+    <div id="s1" class="screen hidden">
+      <div class="cat">🐱</div>
+      <div class="card">
+        <div class="kicker">there's something I want to ask...</div>
+        <h1>Anamika, will you go on a date with me? 💗</h1>
+        <p>I promise good vibes, snacks, and at least one very bad joke.</p>
+        <button class="primary" onclick="go(2)">Yes, I will 🥹</button>
+      </div>
+    </div>
+
+    <div id="s2" class="screen hidden">
+      <button class="back" onclick="go(1)">← back</button>
+      <div class="cat" style="font-size:92px">🥹</div>
+      <div class="card">
+        <div class="kicker">wait... you actually said yes?</div>
+        <h1>Pick a day 💕</h1>
+        <p>When should our little adventure happen?</p>
+        <div class="field"><label>DATE</label><input id="date" type="date"></div>
+        <div class="field"><label>TIME</label><input id="time" type="time" value="19:00"></div>
+        <button class="primary" onclick="go(3)">Next →</button>
+      </div>
+    </div>
+
+    <div id="s3" class="screen hidden">
+      <button class="back" onclick="go(2)">← back</button>
+      <div class="cat" style="font-size:82px">🐱🍿</div>
+      <div class="card">
+        <div class="kicker">Anamika, what should we do?</div>
+        <h1>Pick whatever feels fun ✨</h1>
+        <p class="tiny">Choose as many as you like — we can combine them into one cute plan.</p>
+        <div class="choice-grid">
+          <button class="choice" data-v="Movie" onclick="pick(this)"><span class="emoji">🍿</span><small>Movie</small></button>
+          <button class="choice" data-v="Park" onclick="pick(this)"><span class="emoji">🌳</span><small>Park</small></button>
+          <button class="choice" data-v="Coffee" onclick="pick(this)"><span class="emoji">☕</span><small>Coffee</small></button>
+          <button class="choice" data-v="Dinner" onclick="pick(this)"><span class="emoji">🍽️</span><small>Dinner</small></button>
+          <button class="choice" data-v="Bowling" onclick="pick(this)"><span class="emoji">🎳</span><small>Bowling</small></button>
+          <button class="choice" data-v="Picnic" onclick="pick(this)"><span class="emoji">🧺</span><small>Picnic</small></button>
+        </div>
+        <button id="nextActivity" class="primary" style="width:100%;margin-top:16px;opacity:.45" onclick="finish()">Make it official 💌</button>
+      </div>
+    </div>
+
+    <div id="s4" class="screen hidden">
+      <div class="final-cat">😽💗</div>
+      <div class="ticket">
+        <div class="tiny">ADMIT ONE • DATE TICKET</div>
+        <h2>It's official, Anamika.</h2>
+        <div class="big">We have a date! ✨</div>
+        <hr>
+        <div class="meta">
+          <div><span>DATE</span><b id="outDate">—</b></div>
+          <div><span>TIME</span><b id="outTime">—</b></div>
+          <div><span>PLAN</span><b id="outPlan">—</b></div>
+          <div><span>WITH</span><b>Soham 💗</b></div>
+        </div>
+        <hr>
+        <p style="text-align:center;font-family:cursive;color:var(--pink);font-size:18px">Your ticket's right here. Don't lose it. 🎟️</p>
+      </div>
+      <button class="primary" style="margin-top:16px" onclick="celebrate()">One last thing… 💕</button>
+      <p id="love" class="kicker hidden">Okay, now I’m officially smiling like an idiot. 🫠</p>
+    </div>
+  </section>
+</main>
+<script>
+let plans=[];
+function go(n){
+  document.querySelectorAll(".screen").forEach(x=>x.classList.add("hidden"));
+  const screen=document.getElementById("s"+n);
+  screen.classList.remove("hidden");
+  screen.style.animation="none"; void screen.offsetWidth; screen.style.animation="";
+  window.scrollTo(0,0);
+  burst(n===4 ? 20 : 7);
+}
+function pick(el){
+  el.classList.toggle("selected");
+  const value=el.dataset.v;
+  if(el.classList.contains("selected")){
+    if(!plans.includes(value)) plans.push(value);
+  } else {
+    plans=plans.filter(x=>x!==value);
+  }
+  const b=document.getElementById("nextActivity");
+  b.style.opacity=plans.length ? "1" : ".45";
+  b.textContent=plans.length ? `Make it official 💌 (${plans.length} selected)` : "Make it official 💌";
+  burst(5);
+}
+function finish(){
+  if(!plans.length){alert("Pick at least one thing you would enjoy 😌");return}
+  const d=document.getElementById("date").value;
+  if(!d){alert("Pick a date first 💗");return}
+  const dt=new Date(d+"T00:00:00");
+  document.getElementById("outDate").textContent=dt.toLocaleDateString(undefined,{day:"numeric",month:"short",year:"numeric"});
+  const t=document.getElementById("time").value||"19:00";
+  document.getElementById("outTime").textContent=new Date("1970-01-01T"+t).toLocaleTimeString([],{hour:"numeric",minute:"2-digit"});
+  document.getElementById("outPlan").textContent=plans.join(" + ");
+  go(4);
+}
+function celebrate(){
+  document.getElementById("love").classList.remove("hidden");
+  burst(45);
+}
+function burst(count){
+  const screen=document.querySelector(".screen:not(.hidden)");
+  for(let i=0;i<count;i++){
+    const s=document.createElement("span");
+    s.className="sparkle-pop";
+    s.textContent=["✦","♡","✧","♥"][Math.floor(Math.random()*4)];
+    s.style.left=(10+Math.random()*80)+"%";
+    s.style.top=(10+Math.random()*75)+"%";
+    s.style.setProperty("--x",(Math.random()*120-60)+"px");
+    s.style.setProperty("--y",(Math.random()*120-60)+"px");
+    screen.appendChild(s);
+    setTimeout(()=>s.remove(),900);
+  }
+}
+function floatingHearts(){
+  const h=document.createElement("span");
+  h.className="heart-float";
+  h.textContent=["♡","♥","💗","✦"][Math.floor(Math.random()*4)];
+  h.style.left=(Math.random()*100)+"vw";
+  h.style.setProperty("--dur",(5+Math.random()*5)+"s");
+  h.style.setProperty("--drift",(Math.random()*160-80)+"px");
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),11000);
+}
+setInterval(floatingHearts,900);
+const today=new Date(); today.setDate(today.getDate()+1);
+document.getElementById("date").min=today.toISOString().slice(0,10);
+</script>
+</body>
+</html>
